@@ -1,4 +1,7 @@
-Problem Scenario 1 : You have been given MySQL DB with following details. 
+Reference Documentation - https://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html4
+
+Problem 1 : 
+You have been given MySQL DB with following details. 
 
 user=retail_dba 
 password=cloudera
@@ -12,3 +15,20 @@ Please accomplish following activities.
 2. Copy "retail_db.categories" table to hdfs, without specifying directory name.
 3. Copy "retail_db.categories" table to hdfs, in a directory name "categories_target".
 4. Copy "retail_db.categories" table to hdfs, in a warehouse directory name "categories_warehouse".
+
+
+Problem 2:
+
+Create HDFS directory with name retail_data
+Import all tables using avro file format, compression and number of mappers as 2
+Please use this hint for avro format - -Dmapreduce.job.user.classpath.first=true
+Import orders table to hive database of yours (text file) - Using sqoop import with --hive-import and delimiter '|' - use table name orders_sqooped
+Export the output of revenue per day per department query to mysql
+Create table in mysql logging in as retail_dba
+Database - retail_export
+Username - retail_dba
+
+Please provide the following
+* Output of hadoop fs -ls -R /user/YOUR_USER_NAME/retail_data
+* Output of describe formatted orders_sqooped
+* Output of select * from retail_export.YOUR_TABLE_NAME limit 10
